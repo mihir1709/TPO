@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="black-background">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="blue-background">
+  <ion-card>
+    <ion-card-header>
+      Profile Details
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Name:</ion-label>
+        <ion-label>{{ name }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-label>{{ email }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contact:</ion-label>
+        <ion-label>{{ contact }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Roll No:</ion-label>
+        <ion-label>{{ rollNo }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>HSC College:</ion-label>
+        <ion-label>{{ hscCollege }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>HSC Year:</ion-label>
+        <ion-label>{{ hscYear }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>HSC Total Marks:</ion-label>
+        <ion-label>{{ hscTotal }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>HSC Marks Obtained:</ion-label>
+        <ion-label>{{ hscOutOf }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>SSC College:</ion-label>
+        <ion-label>{{ sscCollege }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>SSC Year:</ion-label>
+        <ion-label>{{ sscYear }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>SSC Total Marks:</ion-label>
+        <ion-label>{{ sscTotal }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>SSC Marks Obtained:</ion-label>
+        <ion-label>{{ sscOutOf }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Semester 1 Marks:</ion-label>
+        <ion-label>{{ sem1Marks }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Semester 2 Marks:</ion-label>
+        <ion-label>{{ sem2Marks }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Semester 3 Marks:</ion-label>
+        <ion-label>{{ sem3Marks }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Semester 4 Marks:</ion-label>
+        <ion-label>{{ sem4Marks }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Semester 5 Marks:</ion-label>
+        <ion-label>{{ sem5Marks }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Additional Courses:</ion-label>
+        <ion-label>{{ additionalCourses }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Resume:</ion-label>
+        <ion-label>
+          <a href="#" (click)="viewUploadedResume()">{{ resumeFileName }}</a>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

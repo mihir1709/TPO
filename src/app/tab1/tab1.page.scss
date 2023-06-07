@@ -1,0 +1,124 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* Header styles */
+ion-header {
+  background-color: #333;
+  color: #fff;
+}
+
+ion-title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Content styles */
+ion-content {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+ion-item {
+  margin-bottom: 1rem;
+}
+
+ion-label {
+  font-weight: bold;
+  color: #333;
+}
+
+ion-input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: transparent;
+}
+
+ion-button {
+  margin-top: 1rem;
+  background-color: #ffffff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ion-button:hover {
+  background-color: #0056b3;
+}
+
+ion-text.color-danger {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #dc3545;
+  display: none;
+}
+
+ion-text.color-danger.show {
+  display: block;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* File upload styles */
+.file-upload-label {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background-color: #0056b3;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+/* Additional styles */
+.registration-form-background {
+  background-color: #c00000;
+}
+
+.black-background {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Submit button style */
+.submit-button {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #006eff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0rem 0rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #cc5500;
+}
