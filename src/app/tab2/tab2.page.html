@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title  class="black-background">
-      Company Details
-    </ion-title>
+    <ion-title class="black-background"> Company Details </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,8 +24,12 @@
             <ion-label>Short Profile:</ion-label>
             <ion-text>{{ company.shortProfile }}</ion-text>
           </ion-item>
+          <ion-button >Visit Company
+            <a [href]="'https://www.google.com'" target="_blank">Visit Website</a>
+          </ion-button>
         </ion-card-content>
       </ion-card>
+      
     </ion-item>
   </ion-list>
 </ion-content>

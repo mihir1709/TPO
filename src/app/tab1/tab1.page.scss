@@ -44,7 +44,7 @@ ion-input {
 ion-button {
   margin-top: 1rem;
   background-color: #ffffff;
-  color: #fff;
+  color: #333;
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
@@ -56,6 +56,7 @@ ion-button {
 
 ion-button:hover {
   background-color: #0056b3;
+  color: #fff;
 }
 
 ion-text.color-danger {
@@ -112,7 +113,7 @@ a {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 0rem 0rem;
+  padding: 0.5rem 1rem;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
@@ -120,5 +121,5 @@ a {
 }
 
 .submit-button:hover {
-  background-color: #cc5500;
+  background-color: #9bf2f5;
 }

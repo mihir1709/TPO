@@ -1,165 +1,214 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title  class="black-background">
+    <ion-title class="black-background">
       Registration Form
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="registration-form-background">
-  <ion-item>
-    <ion-label position="floating">Name</ion-label>
-    <ion-input [(ngModel)]="name" name="name" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (name.trim() === '' || !isValidName())">
-    Please enter a valid name.
-  </ion-text>
+  <ion-card>
+    <ion-card-content>
+      <h1>Profile Picture</h1>
+      <br><br>
+      <ion-item>
+        <ion-input type="file" accept=".pdf,.doc,.docx" (change)="handleResumeUpload($event)"></ion-input>
+        <ion-button class="btn" expand="block" (click)="viewUploadedResume()" *ngIf="resumeFile">View Resume</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (email.trim() === '' || !isValidEmail())">
-    Please enter a valid email.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Contact</ion-label>
-    <ion-input [(ngModel)]="contact" name="contact" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (contact.trim() === '' || !isValidContact())">
-    Please enter a valid contact number.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Roll No</ion-label>
-    <ion-input [(ngModel)]="rollNo" name="rollNo" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && rollNo.trim() === ''">
-    Please enter a valid roll number.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">HSC College</ion-label>
-    <ion-input [(ngModel)]="hscCollege" name="hscCollege" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && hscCollege.trim() === ''">
-    Please enter a valid HSC college.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">HSC Year</ion-label>
-    <ion-input [(ngModel)]="hscYear" name="hscYear" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && hscYear.trim() === ''">
-    Please enter a valid HSC year.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">HSC Total Marks</ion-label>
-    <ion-input [(ngModel)]="hscTotal" name="hscTotal" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && hscTotal <= 0">
-    Please enter a valid HSC total marks.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">HSC Marks Obtained</ion-label>
-    <ion-input [(ngModel)]="hscOutOf" name="hscOutOf" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && hscOutOf <= 0">
-    Please enter a valid HSC marks obtained.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">SSC College</ion-label>
-    <ion-input [(ngModel)]="sscCollege" name="sscCollege" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && sscCollege.trim() === ''">
-    Please enter a valid SSC college.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">SSC Year</ion-label>
-    <ion-input [(ngModel)]="sscYear" name="sscYear" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && sscYear.trim() === ''">
-    Please enter a valid SSC year.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">SSC Total Marks</ion-label>
-    <ion-input [(ngModel)]="sscTotal" name="sscTotal" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && sscTotal <= 0">
-    Please enter a valid SSC total marks.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">SSC Marks Obtained</ion-label>
-    <ion-input [(ngModel)]="sscOutOf" name="sscOutOf" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && sscOutOf <= 0">
-    Please enter a valid SSC marks obtained.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Semester 1 Marks</ion-label>
-    <ion-input [(ngModel)]="sem1Marks" name="sem1Marks" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (sem1Marks < 0 || sem1Marks > 10)">
-    Please enter valid Semester 1 marks between 0 and 10.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Semester 2 Marks</ion-label>
-    <ion-input [(ngModel)]="sem2Marks" name="sem2Marks" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (sem2Marks < 0 || sem2Marks > 10)">
-    Please enter valid Semester 2 marks between 0 and 10.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Semester 3 Marks</ion-label>
-    <ion-input [(ngModel)]="sem3Marks" name="sem3Marks" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (sem3Marks < 0 || sem3Marks > 10)">
-    Please enter valid Semester 3 marks between 0 and 10.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Semester 4 Marks</ion-label>
-    <ion-input [(ngModel)]="sem4Marks" name="sem4Marks" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (sem4Marks < 0 || sem4Marks > 10)">
-    Please enter valid Semester 4 marks between 0 and 10.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Semester 5 Marks</ion-label>
-    <ion-input [(ngModel)]="sem5Marks" name="sem5Marks" type="number" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && (sem5Marks < 0 || sem5Marks > 10)">
-    Please enter valid Semester 5 marks between 0 and 10.
-  </ion-text>
-
-  <ion-item>
-    <ion-label position="floating">Additional Courses</ion-label>
-    <ion-input [(ngModel)]="additionalCourses" name="additionalCourses" required></ion-input>
-  </ion-item>
-  <ion-text color="danger" *ngIf="isFormSubmitted && additionalCourses.trim() === ''">
-    Please enter additional courses.
-
-  </ion-text>
-  <ion-item>
-    <ion-label position="floating">Upload Resume</ion-label>
-    <ion-input type="file" accept=".pdf,.doc,.docx" (change)="handleResumeUpload($event)"></ion-input>
-    <ion-button class="btn" expand="block" (click)="viewUploadedResume()" *ngIf="resumeFile">View Resume</ion-button>
-  </ion-item>
-
-  <ion-button class="submit-button" expand="full" (click)="submitForm()">Submit</ion-button>
-  <ion-text color="danger" *ngIf="isFormSubmitted && !validateForm()">
-    Please fill in all required fields.
-  </ion-text>
+  <ion-card>
+    <ion-card-content>
+      <!-- Other personal detail inputs -->
+      <h1>Persoanl Detail</h1>
+      <br>
   
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="name" name="name" required></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="isFormSubmitted && (name.trim() === '' || !isValidName())">
+        Please enter a valid name.
+      </ion-text>
+    
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="isFormSubmitted && (email.trim() === '' || !isValidEmail())">
+        Please enter a valid email.
+      </ion-text>
+    
+      <ion-item>
+        <ion-label position="floating">Contact</ion-label>
+        <ion-input [(ngModel)]="contact" name="contact" required></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="isFormSubmitted && (contact.trim() === '' || !isValidContact())">
+        Please enter a valid contact number.
+      </ion-text>
+    
+      <ion-item>
+        <ion-label position="floating">Roll No</ion-label>
+        <ion-input [(ngModel)]="rollNo" name="rollNo" required></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="isFormSubmitted && rollNo.trim() === ''">
+        Please enter a valid roll number.
+      </ion-text>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h1>Education Details</h1>
+      <ion-card>
+        <ion-card-content>
+
+          <!-- HSC details inputs -->
+          <h4>HSC Details</h4>
+          <ion-item>
+            <ion-label position="floating">HSC College</ion-label>
+            <ion-input [(ngModel)]="hscCollege" name="hscCollege" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && hscCollege.trim() === ''">
+            Please enter a valid HSC college.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">HSC Year</ion-label>
+            <ion-input [(ngModel)]="hscYear" name="hscYear" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && hscYear.trim() === ''">
+            Please enter a valid HSC year.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">HSC Total Marks</ion-label>
+            <ion-input [(ngModel)]="hscTotal" name="hscTotal" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && hscTotal <= 0">
+            Please enter a valid HSC total marks.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">HSC Marks Obtained</ion-label>
+            <ion-input [(ngModel)]="hscOutOf" name="hscOutOf" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && hscOutOf <= 0">
+            Please enter a valid HSC marks obtained.
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          <h4>SSC Details</h4>
+          <ion-item>
+            <ion-label position="floating">SSC College</ion-label>
+            <ion-input [(ngModel)]="sscCollege" name="sscCollege" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && sscCollege.trim() === ''">
+            Please enter a valid SSC college.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">SSC Year</ion-label>
+            <ion-input [(ngModel)]="sscYear" name="sscYear" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && sscYear.trim() === ''">
+            Please enter a valid SSC year.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">SSC Total Marks</ion-label>
+            <ion-input [(ngModel)]="sscTotal" name="sscTotal" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && sscTotal <= 0">
+            Please enter a valid SSC total marks.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">SSC Marks Obtained</ion-label>
+            <ion-input [(ngModel)]="sscOutOf" name="sscOutOf" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && sscOutOf <= 0">
+            Please enter a valid SSC marks obtained.
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          <h4>Current Score:</h4>
+          <!-- Semester marks inputs -->
+          <ion-item>
+            <ion-label position="floating">Semester 1 Marks</ion-label>
+            <ion-input [(ngModel)]="sem1Marks" name="sem1Marks" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && (sem1Marks < 0 || sem1Marks > 10)">
+            Please enter valid Semester 1 marks between 0 and 10.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">Semester 2 Marks</ion-label>
+            <ion-input [(ngModel)]="sem2Marks" name="sem2Marks" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && (sem2Marks < 0 || sem2Marks > 10)">
+            Please enter valid Semester 2 marks between 0 and 10.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">Semester 3 Marks</ion-label>
+            <ion-input [(ngModel)]="sem3Marks" name="sem3Marks" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && (sem3Marks < 0 || sem3Marks > 10)">
+            Please enter valid Semester 3 marks between 0 and 10.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">Semester 4 Marks</ion-label>
+            <ion-input [(ngModel)]="sem4Marks" name="sem4Marks" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && (sem4Marks < 0 || sem4Marks > 10)">
+            Please enter valid Semester 4 marks between 0 and 10.
+          </ion-text>
+        
+          <ion-item>
+            <ion-label position="floating">Semester 5 Marks</ion-label>
+            <ion-input [(ngModel)]="sem5Marks" name="sem5Marks" type="number" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && (sem5Marks < 0 || sem5Marks > 10)">
+            Please enter valid Semester 5 marks between 0 and 10.
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+         <h2>Tell Something about you:</h2>
+          <ion-item>
+            <ion-input [(ngModel)]="additionalCourses" name="additionalCourses" required></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="isFormSubmitted && additionalCourses.trim() === ''">
+            Please enter additional courses.
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <h1>Upload Your Resume:</h1>
+      <ion-item>
+        <ion-input type="file" accept=".pdf,.doc,.docx" (change)="handleResumeUpload($event)"></ion-input>
+        <ion-button class="btn" expand="block" (click)="viewUploadedResume()" *ngIf="resumeFile">View Resume</ion-button>
+      </ion-item>
+      <ion-button class="submit-button" expand="full" (click)="submitForm()">Submit</ion-button>
+      <ion-text color="danger" *ngIf="isFormSubmitted && !validateForm()">
+        Please fill in all required fields.
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
